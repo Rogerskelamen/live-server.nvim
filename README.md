@@ -26,7 +26,7 @@ For [packer.nvim](https://github.com/wbthomason/packer.nvim):
 use {
   "Rogerskelamen/live-server.nvim",
   config = function()
-    require "live-server"
+    require "live-server".setup{}
   end
 }
 ```
