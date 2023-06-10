@@ -23,7 +23,12 @@ For [packer.nvim](https://github.com/wbthomason/packer.nvim):
 
 ```lua
 -- Live Server
-use "Rogerskelamen/live-server.nvim"
+use {
+  "Rogerskelamen/live-server.nvim",
+  config = function()
+    require "live-server"
+  end
+}
 ```
 
 ## Usage
