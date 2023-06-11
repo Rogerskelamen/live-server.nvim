@@ -20,14 +20,14 @@ local function LiveServer(opts)
   -- delete all buffers running live-server
   elseif opts.fargs[1] == "stop" then
     local buffers = {}
-    for _, buf in pairs(api.nvim_list_bufs()) do
-      if string.find(api.nvim_buf_get_name(buf), "^term.*live%-server$") then
-        table.insert(buffers, buf)
+    for _, bufnr in pairs(api.nvim_list_bufs()) do
+      if string.find(api.nvim_buf_get_name(bufnr), "^term.*live%-server$") then
+        table.insert(buffers, bufnr)
       end
     end
     if next(buffers) ~= nil then
-      for _, buf in pairs(buffers) do
-        api.nvim_buf_delete(buf, { force = true })
+      for _, bufnr in pairs(buffers) do
+        api.nvim_buf_delete(bufnr, { force = true })
       end
       print("Stopped all live-server instances (npm).")
     end
